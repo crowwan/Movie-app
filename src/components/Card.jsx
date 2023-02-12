@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 const StyledCard = styled.div`
   width: 15rem;
@@ -32,15 +33,17 @@ const StyledTitleBox = styled.div`
 `;
 function Card({ imgUrl, data }) {
   return (
-    <StyledCard>
-      <StyledBackground>
-        <StyledImage src={`${imgUrl}/${data.poster_path}`} alt="" />
-        <StyledTitleBox>
-          <span>{data.title}</span>
-          <span>{data.vote_average}</span>
-        </StyledTitleBox>
-      </StyledBackground>
-    </StyledCard>
+    <Link to={`/movie/${data.id}`}>
+      <StyledCard>
+        <StyledBackground>
+          <StyledImage src={`${imgUrl}/${data.poster_path}`} alt="" />
+          <StyledTitleBox>
+            <span>{data.title}</span>
+            <span>{data.vote_average}</span>
+          </StyledTitleBox>
+        </StyledBackground>
+      </StyledCard>
+    </Link>
   );
 }
 
