@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import Card from "../components/Card";
+import { data } from "../data/data";
+
+const StyledCardContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
 
 function Main() {
   return (
-    <div>
-      <Card />
-    </div>
+    <StyledCardContainer>
+      {data.results.map((a) => (
+        <Card imgUrl={data.imageUrl} data={a} />
+      ))}
+    </StyledCardContainer>
   );
 }
 
