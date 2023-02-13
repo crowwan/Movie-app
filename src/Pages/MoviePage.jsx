@@ -1,7 +1,7 @@
 import React from "react";
-
+import StyledContainer from "../components/StyledContainer";
 function MoviePage() {
-  return <div>MoviePage</div>;
+  return <StyledContainer></StyledContainer>;
 }
 
 export default MoviePage;
