@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Card from "../components/Card";
-import { data } from "../data/data";
+import { IMG_URL } from "../data/urls";
 
 const StyledCardContainer = styled.div`
   display: flex;
@@ -9,12 +9,14 @@ const StyledCardContainer = styled.div`
   justify-content: space-between;
 `;
 
-function Main() {
+function Main({ data }) {
+  console.log(data);
   return (
     <StyledCardContainer>
-      {data.results.map((a) => (
-        <Card key={a.id} imgUrl={data.imageUrl} data={a} />
-      ))}
+      {data &&
+        data.results.map((a) => (
+          <Card key={a.id} imgUrl={IMG_URL + a.poster_path} data={a} />
+        ))}
     </StyledCardContainer>
   );
 }
