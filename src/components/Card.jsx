@@ -36,10 +36,10 @@ function Card({ imgUrl, data }) {
     <Link to={`/movie/${data.id}`}>
       <StyledCard>
         <StyledBackground>
-          <StyledImage src={`${imgUrl}/${data.poster_path}`} alt="" />
+          <StyledImage src={`${imgUrl}`} alt="" />
           <StyledTitleBox>
             <span>{data.title}</span>
-            <span>{data.vote_average}</span>
+            <span>{data.vote_average.toFixed(1)}</span>
           </StyledTitleBox>
         </StyledBackground>
       </StyledCard>
