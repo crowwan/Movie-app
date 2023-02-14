@@ -6,7 +6,8 @@ const Input = styled.input`
   outline: none;
   font-size: 24px;
   background-color: transparent;
-  border: none;
+  border: 1px solid #222222;
+  color: white;
   border-radius: 15px;
   padding: 0.5rem 2rem;
   box-shadow: 0 0 5px;
@@ -14,7 +15,8 @@ const Input = styled.input`
 const FilterBox = styled.select`
   background-color: transparent;
   border-radius: 15px;
-  border: none;
+  border: 1px solid #222222;
+  color: white;
   box-shadow: 0 0 5px;
   width: 20%;
 `;
