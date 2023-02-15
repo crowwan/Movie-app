@@ -23,7 +23,7 @@ function MoviePage() {
   return (
     <StyledContainer>
       <Detail data={detail} isLoading={isLoading} error={error} />
-      <Recommendations data={recommend} />
+      {recommend && <Recommendations data={recommend} />}
     </StyledContainer>
   );
 }
