@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 const StyledCard = styled.div`
@@ -47,4 +47,4 @@ function Card({ imgUrl, data }) {
   );
 }
 
-export default Card;
+export default memo(Card);
