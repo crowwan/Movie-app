@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { setValue } from "../app/searchSlice";
 
 const Input = styled.input`
   width: 70%;
@@ -22,14 +24,21 @@ const FilterBox = styled.select`
 `;
 
 function Search() {
-  const [value, setValue] = useState("");
-
-  const onChange = (e) => {
-    setValue(e.target.value);
-  };
+  const searchValue = useSelector((state) => state.search);
+  const dispatch = useDispatch();
+  // enter키 누르면 검색
+  console.log(searchValue);
   return (
     <>
-      <Input type="text" value={value} onChange={onChange} />
+      <Input
+        type="text"
+        defaultValue={""}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            dispatch(setValue(e.target.value));
+          }
+        }}
+      />
       <FilterBox />
     </>
   );
