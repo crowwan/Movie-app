@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { setValue } from "../app/searchSlice";
 
@@ -24,21 +25,27 @@ const FilterBox = styled.select`
 `;
 
 function Search() {
-  const searchValue = useSelector((state) => state.search);
+  const navigation = useNavigate();
   const dispatch = useDispatch();
   // enter키 누르면 검색
-  console.log(searchValue);
+  const onKeyDown = (e) => {
+    if (e.key === "Enter") {
+      // console.log(test);
+      // setTest("test2");
+      // console.log(test);
+      // dispatch(setValue(e.target.value));
+
+      /**
+       * dispatch 이후 navigation 안에서 searchValue를 접근하면 이전 상태값을 가지고 있다.
+       * 이것도 비동기로 동작하는 이유이기 때문인가? useState에서 상태 변경함수를 써보자.
+       * useState에서도 똑같이 동작한다.
+       */
+      navigation(`/movie/search/${e.target.value}`);
+    }
+  };
   return (
     <>
-      <Input
-        type="text"
-        defaultValue={""}
-        onKeyDown={(e) => {
-          if (e.key === "Enter") {
-            dispatch(setValue(e.target.value));
-          }
-        }}
-      />
+      <Input type="text" defaultValue={""} onKeyDown={onKeyDown} />
       <FilterBox />
     </>
   );
