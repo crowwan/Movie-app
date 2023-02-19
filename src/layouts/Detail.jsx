@@ -11,7 +11,6 @@ const StyledContainer = styled.div`
 const StyledSection = styled.section`
   width: 100%;
   padding: 2rem;
-  color: white;
 `;
 const StyledTitle = styled.h2`
   display: block;
@@ -30,7 +29,6 @@ const StyledToMain = styled.div`
   height: 5rem;
 `;
 const StyledBtn = styled.span`
-  color: white;
   font-size: 1rem;
   cursor: pointer;
 `;
@@ -38,13 +36,13 @@ const tags = ["status", "popularity", "runtime", "vote_average"];
 function Detail({ data, isLoading, error }) {
   // TODO: overview 디자인
   // TODO: 예매 버튼은 나중에
-  const naviagtion = useNavigate();
+  const navigation = useNavigate();
   return (
     <>
       <StyledToMain>
         <StyledBtn
           onClick={() => {
-            naviagtion("/");
+            navigation("/");
           }}
         >
           {"<"} 메인으로

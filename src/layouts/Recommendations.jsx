@@ -6,10 +6,8 @@ const StyledLabel = styled.div`
   font-size: 2rem;
   margin-bottom: 1rem;
   font-weight: bold;
-  color: white;
 `;
 const StyledDiv = styled.div`
-  color: white;
   font-size: 2rem;
   text-align: center;
   width: 100%;

@@ -29,7 +29,6 @@ const StyledTitleBox = styled.div`
   font-size: 0.9rem;
   font-weight: bold;
   background-color: #35447c;
-  color: #f3f3f3;
 `;
 function Card({ imgUrl, data }) {
   return (
