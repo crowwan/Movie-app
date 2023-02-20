@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import StyledContainer from "../components/StyledContainer";
@@ -7,6 +7,7 @@ import { IMG_URL, SEARCH_API } from "../data/urls";
 import Card from "../components/Card";
 import { fetcher } from "./MainPage";
 import Main from "../layouts/Main";
+import { useDataWithPage } from "../hooks/useDataWithPage";
 
 const StyledHeader = styled.h3`
   padding: 3rem;
@@ -29,8 +30,11 @@ const StyledBtn = styled.span`
 
 function SearchPage() {
   const { name } = useParams();
-  const { data } = useSWR(`${SEARCH_API}&query=${name}`, fetcher);
   const navigation = useNavigate();
+  const [data, result, setPage] = useDataWithPage(
+    `${SEARCH_API}&query=${name}`
+  );
+
   return (
     <StyledContainer>
       <StyledToMain>
@@ -43,7 +47,14 @@ function SearchPage() {
         </StyledBtn>
       </StyledToMain>
       <StyledHeader>{`${name}의 검색 결과입니다.`}</StyledHeader>
-      {data && <Main data={data} />}
+      {result && (
+        <Main
+          data={data}
+          setPage={setPage}
+          page={result.page}
+          total_pages={result.total_pages}
+        />
+      )}
     </StyledContainer>
   );
 }
