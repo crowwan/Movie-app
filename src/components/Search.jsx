@@ -26,7 +26,6 @@ const FilterBox = styled.select`
 
 function Search() {
   const navigation = useNavigate();
-  const dispatch = useDispatch();
   // enter키 누르면 검색
   const onKeyDown = (e) => {
     if (e.key === "Enter") {
