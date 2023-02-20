@@ -15,7 +15,7 @@ const Arrow = styled.div`
   height: 50px;
   cursor: pointer;
   border: 2px solid #35447c;
-
+  color: #35447c;
   & > span {
     display: block;
     width: 100%;
