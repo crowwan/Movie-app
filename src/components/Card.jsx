@@ -31,6 +31,7 @@ const StyledTitleBox = styled.div`
   background-color: #35447c;
 `;
 function Card({ imgUrl, data }) {
+  console.log(data);
   return (
     <Link to={`/movie/${data.id}`}>
       <StyledCard>
