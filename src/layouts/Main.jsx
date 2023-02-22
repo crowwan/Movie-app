@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Card from "../components/Card";
 import { IMG_URL } from "../data/urls";
@@ -20,9 +20,13 @@ const StyledMoreBtn = styled.button`
 `;
 
 function Main({ data, setPage, page, total_pages }) {
-  console.log(data);
+  const scrollRef = useRef();
+  useEffect(() => {
+    console.log(scrollRef.current.scrollHeight);
+    window.scrollTo(0, scrollRef.current.scrollHeight);
+  }, [data]);
   return (
-    <>
+    <div ref={scrollRef}>
       <StyledCardContainer>
         {data &&
           data.map((a) => (
@@ -36,7 +40,7 @@ function Main({ data, setPage, page, total_pages }) {
           </StyledMoreBtn>
         </StyledButtonContainer>
       )}
-    </>
+    </div>
   );
 }
 
